@@ -4,10 +4,10 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
           http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          version="3.0">
-    <!--welcome pages-->
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
+
     <context-param>
         <param-name>webAppRootKey</param-name>
         <param-value>webapp.root</param-value>
@@ -20,19 +20,121 @@
     <listener>
         <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
     </listener>
-    <!--配置springmvc DispatcherServlet-->
-    <servlet>
-        <servlet-name>springMVC</servlet-name>
-        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <!-- 加载struts2核心 -->
+    <filter>
+        <filter-name>struts2</filter-name>
+        <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
         <init-param>
-            <param-name>contextConfigLocation</param-name>
-            <param-value>classpath:spring/applicationContext.xml</param-value>
+            <param-name>config</param-name>
+            <param-value>struts-default.xml,struts-plugin.xml,struts.xml</param-value>
         </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>struts2</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!-- 指明spring配置文件在何处 -->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath*:spring/applicationContext.xml</param-value>
+    </context-param>
+    <!-- 加载spring配置文件applicationContext.xml -->
+    <listener>
+        <listener-class>
+            org.springframework.web.context.ContextLoaderListener
+        </listener-class>
+    </listener>
+
+
+
+
+
+
+
+
+    <servlet>
+        <!--<servlet-name>JspSupportServlet</servlet-name>-->
+
+        <!--<servlet-class>-->
+        <!--org.apache.struts2.views.JspSupportServlet-->
+        <!--</servlet-class>-->
+
+        <servlet-name>freemarker</servlet-name>
+
+        <servlet-class>
+            freemarker.ext.servlet.FreemarkerServlet
+        </servlet-class>
+
+        <!--FreemarkerServlet 设置:-->
+
+        <init-param>
+
+            <param-name>ftl</param-name>
+
+            <param-value>/</param-value>
+
+        </init-param>
+
+        <init-param>
+
+            <param-name>NoCache</param-name>
+
+            <param-value>true</param-value>
+
+        </init-param>
+
+        <init-param>
+
+            <param-name>ContentType</param-name>
+
+            <param-value>text/html; charset=UTF-8</param-value>
+
+            <!--强制使用 UTF-8作为输出编码格式!-->
+
+        </init-param>
+
+        <!--FreeMarker 设置:-->
+
+        <init-param>
+
+            <param-name>template_update_delay</param-name>
+
+            <param-value>0</param-value>
+
+            <!--0 只对开发使用! 否则使用大一点的值.-->
+
+        </init-param>
+
+        <init-param>
+
+            <param-name>default_encoding</param-name>
+
+            <param-value>utf-8</param-value>
+
+            <!--模板文件的编码方式.-->
+
+        </init-param>
+
+        <init-param>
+
+            <param-name>number_format</param-name>
+
+            <param-value>0.##########</param-value>
+
+        </init-param>
+
         <load-on-startup>1</load-on-startup>
-        <async-supported>true</async-supported>
+
     </servlet>
+
     <servlet-mapping>
-        <servlet-name>springMVC</servlet-name>
-        <url-pattern>/</url-pattern>
+
+        <servlet-name>freemarker</servlet-name>
+
+        <url-pattern>*.ftl</url-pattern>
+
     </servlet-mapping>
+
 </web-app>

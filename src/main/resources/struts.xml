@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!--<package name="base" extends="json-default,struts-default"></package>-->
+    <!-- 这里可以设置一些全局的返回值映射关系等 -->
+
+    <constant name="struts.convention.default.parent.package" value="base"/>
+    <constant name="struts.action.extension" value=""/>
+    <constant name="struts.action.excludePattern" value="/statics/.*,/pic/.*"/>
+    <constant name="struts.ui.theme" value="simple"/>
+    <constant name="struts.i18n.encoding" value="utf-8"/>
+    <constant name="struts.multipart.maxSize" value="1073741824"/>
+    <constant name="struts.devMode" value="false"/>
+    <constant name="struts.objectFactory" value="spring"/><!--spring与struts的整合-->
+    <package name="base" extends="json-default,struts-default">
+    </package>
+
+    <package name="global" extends="base" >
+        <interceptors>
+            <interceptor name="loginInterceptor" class="com.maiya.web.interceptor.LoginInterceptor">
+            </interceptor>
+            <interceptor-stack name="myStack">
+                <interceptor-ref name="defaultStack"></interceptor-ref>
+                <interceptor-ref name="loginInterceptor">
+                </interceptor-ref>
+            </interceptor-stack>
+        </interceptors>
+        <default-interceptor-ref name="myStack"></default-interceptor-ref>
+        <global-results>
+            <!-- 逻辑名为login的结果，映射到登录页面 -->
+            <result name="login">/statics/views/login.ftl</result>
+            <result name="error">/statics/views/error.ftl</result>
+        </global-results>
+
+        <global-exception-mappings>
+            <exception-mapping result="error" exception="java.lang.Exception"/>
+        </global-exception-mappings>
+    </package>
+
+    <package name="user" extends="base" namespace="/user">
+        <action name="init" class="com.maiya.action.UserAction" method="init">
+            <result name="success" type="freemarker">/statics/views/userIndex.ftl</result>
+        </action>
+        <action name="adminInit" class="com.maiya.action.UserAction" method="adminInit">
+            <result name="success" type="freemarker">/statics/views/adminIndex.ftl</result>
+            <result name="input" type="chain">init</result>
+        </action>
+        <action name="register" class="com.maiya.action.UserAction" method="register">
+            <result name="success" type="json">
+                <param name="root">respBean</param>
+            </result>
+        </action>
+        <action name="checkLogin" class="com.maiya.action.UserAction" method="checkLogin">
+            <result name="success" type="json">
+                <param name="root">respBean</param>
+            </result>
+        </action>
+        <action name="login" class="com.maiya.action.UserAction" method="login">
+            <result name="success" type="json">
+                <param name="root">respBean</param>
+            </result>
+        </action>
+        <action name="loginOut" class="com.maiya.action.UserAction" method="loginOut">
+            <result name="success" type="json">
+                <param name="root">respBean</param>
+            </result>
+        </action>
+        <action name="getRandom" class="com.maiya.action.UserAction" method="getRandom">
+            <result name="success" type="json">
+                <param name="root">respBean</param>
+            </result>
+        </action>
+        <action name="register-first" class="com.maiya.action.UserAction" method="registerFirst">
+            <result name="success" type="json">
+                <param name="root">respBean</param>
+            </result>
+        </action>
+        <action name="register-init" class="com.maiya.action.UserAction" method="registerInit">
+            <result name="success" type="freemarker">/statics/views/register.ftl</result>
+        </action>
+    </package>
+    <package name="collection" namespace="/collection" extends="base">
+        <action name="collect" class="com.maiya.action.CollectionAction" method="collect">
+            <result type="json">
+                <param name="root">respBean</param>
+            </result>
+        </action>
+      <action name="init" class="com.maiya.action.CollectionAction" method="init">
+          <result name="fail" type="freemarker">/statics/views/userIndex2.ftl</result>
+          <result name="success" type="freemarker">/statics/views/myCollection.ftl</result>
+      </action>
+        <action name="add" class="com.maiya.action.CollectionAction" method="add">
+            <result name="success" type="json">
+                <param name="root">respBean</param>
+            </result>
+        </action>
+        <action name="upload" class="com.maiya.action.CollectionAction" method="upload">
+            <result type="json">
+                <param name="root">respBean</param>
+            </result>
+        </action>
+        <action name="detail" class="com.maiya.action.CollectionAction" method="detail">
+            <result name="success" type="freemarker">/statics/views/myCollectionDetail.ftl</result>
+        </action>
+        <action name="updateCollection" class="com.maiya.action.CollectionAction" method="updateCollection">
+            <result type="json">
+                <param name="root">respBean</param>
+            </result>
+        </action>
+        <action name="delete" class="com.maiya.action.CollectionAction" method="delete">
+            <result type="json">
+                <param name="root">respBean</param>
+            </result>
+        </action>
+    </package>
+    <package name="columnDetail" namespace="/columnDetail" extends="base">
+        <action name="detail" class="com.maiya.action.ColumnDetailAction" method="detail">
+            <result name="success" type="freemarker">/statics/views/columnDetail.ftl</result>
+        </action>
+        <action name="adminColumnIndex" class="com.maiya.action.ColumnDetailAction" method="adminColumnIndex">
+            <result name="success" type="freemarker">/statics/views/columnManger.ftl</result>
+        </action>
+        <action name="adminColumnDeatil" class="com.maiya.action.ColumnDetailAction" method="adminColumnDeatil">
+            <result name="success" type="freemarker">/statics/views/columnMangerDetail.ftl</result>
+        </action>
+        <action name="deleteColumnPic" class="com.maiya.action.ColumnDetailAction" method="deleteColumnPic">
+            <result name="success" type="json">
+                <param name="root">respBean</param>
+            </result>
+        </action>
+        <action name="save" class="com.maiya.action.ColumnDetailAction" method="save">
+            <result name="success" type="json">
+                <param name="root">respBean</param>
+            </result>
+        </action>
+        <action name="delete" class="com.maiya.action.ColumnDetailAction" method="delete">
+            <result name="success" type="json">
+                <param name="root">respBean</param>
+            </result>
+        </action>
+        <action name="upload" class="com.maiya.action.ColumnDetailAction" method="upload">
+            <result type="json">
+                <param name="root">respBean</param>
+            </result>
+        </action>
+    </package>
+    <package name="picDetail" namespace="/picDetail" extends="base">
+        <action name="detail" class="com.maiya.action.PicDetailAction" method="detail">
+            <result name="success" type="freemarker">/statics/views/picDetail.ftl</result>
+        </action>
+        <action name="findAllPicByKey" class="com.maiya.action.PicDetailAction" method="findAllPicByKey">
+            <result name="success" type="freemarker">/statics/views/searchPicDetail.ftl</result>
+        </action>
+        <action name="findLastNew" class="com.maiya.action.PicDetailAction" method="findLastNew">
+            <result name="success" type="freemarker">/statics/views/searchPicDetail.ftl</result>
+        </action>
+    </package>
+    <package name="admin" namespace="/admin" extends="base">
+        <action name="init" class="com.maiya.action.AdminAction" method="init">
+            <result name="success" type="freemarker">/statics/views/adminIndex.ftl</result>
+            <result name="input" type="chain">/petal/user/init</result>
+        </action>
+        <action name="allUser" class="com.maiya.action.AdminAction" method="allUser">
+            <result name="success" type="freemarker">/statics/views/userManger.ftl</result>
+        </action>
+    </package>
+</struts>

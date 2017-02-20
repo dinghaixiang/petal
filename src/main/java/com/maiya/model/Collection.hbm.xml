@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.maiya.model.Collection" table="collection">
+        <id column="collectId" name="collectId">
+            <generator class="increment"/>
+        </id>
+        <property name="collectName" column="collectName"/>
+        <property name="vaild" column="vaild"/>
+        <property name="userId" column="userId"></property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.maiya.model.Picture" table="picture">
+        <id column="picId" name="picId">
+            <generator class="increment"/>
+        </id>
+        <property name="picName" column="picName"/>
+        <property name="picSize" column="picSize"/>
+        <property name="picFormat" column="picFormat"/>
+        <property name="collectId" column="collectId">
+        </property>
+        <property name="vaild" column="vaild"/>
+        <property name="uploadTime" column="uploadTime"/>
+        <property name="keyWord" column="keyword"></property>
+    </class>
+</hibernate-mapping>
