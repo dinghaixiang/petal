@@ -12,6 +12,7 @@ public class Picture {
     private String uploadTime;
     private String vaild;
     private String keyWord;
+    private String userId;
 
     public String getKeyWord() {
         return keyWord;
@@ -77,5 +78,11 @@ public class Picture {
         this.vaild = vaild;
     }
 
+    public String getUserId() {
+        return userId;
+    }
 
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 }

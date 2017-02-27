@@ -16,5 +16,6 @@
         <property name="vaild" column="vaild"/>
         <property name="uploadTime" column="uploadTime"/>
         <property name="keyWord" column="keyword"></property>
+        <property name="userId" column="userId"></property>
     </class>
 </hibernate-mapping>

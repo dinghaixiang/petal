@@ -84,6 +84,19 @@
         <action name="register-init" class="com.maiya.action.UserAction" method="registerInit">
             <result name="success" type="freemarker">/statics/views/register.ftl</result>
         </action>
+        <action name="findPwd" class="com.maiya.action.UserAction" method="findPwd">
+            <result name="success" type="json">
+                <param name="root">respBean</param>
+            </result>
+        </action>
+        <action name="findPwdInit" class="com.maiya.action.UserAction" method="findPwdInit">
+            <result name="success" type="freemarker">/statics/views/forgetPwd.ftl</result>
+        </action>
+        <action name="updateNickName" class="com.maiya.action.UserAction" method="updateNickName">
+            <result name="success" type="json">
+                <param name="root">respBean</param>
+            </result>
+        </action>
     </package>
     <package name="collection" namespace="/collection" extends="base">
         <action name="collect" class="com.maiya.action.CollectionAction" method="collect">
@@ -114,6 +127,16 @@
             </result>
         </action>
         <action name="delete" class="com.maiya.action.CollectionAction" method="delete">
+            <result type="json">
+                <param name="root">respBean</param>
+            </result>
+        </action>
+        <action name="deletePic" class="com.maiya.action.CollectionAction" method="deletePic">
+            <result type="json">
+                <param name="root">respBean</param>
+            </result>
+        </action>
+        <action name="updatePicCollection" class="com.maiya.action.CollectionAction" method="updatePicCollection">
             <result type="json">
                 <param name="root">respBean</param>
             </result>

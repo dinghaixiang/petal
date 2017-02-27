@@ -3,6 +3,7 @@ package com.maiya.action;
 import com.maiya.model.*;
 import com.maiya.service.CollectionService;
 import com.maiya.service.ColumnService;
+import com.maiya.service.PicDetailService;
 import com.maiya.service.UserService;
 import com.maiya.utils.Collections;
 import com.maiya.utils.CookiesUtil;
@@ -15,7 +16,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpSession;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +37,8 @@ public class UserAction extends ActionSupport {
     private CollectionService collectionService;
     @Autowired
     private ColumnService columnService;
+    @Autowired
+    private PicDetailService picDetailService;
     private RespBean respBean;
     private String userName;
     private String passWord;
@@ -41,18 +47,44 @@ public class UserAction extends ActionSupport {
     private String nickName;
     List<Picture> subPictures=new  ArrayList();
     List<Column> columns=new ArrayList<Column>();
+    private String newPwd;
+    private String role;
     public String init(){
+        Cookie cookie= CookiesUtil.getCookie(ServletActionContext.getRequest(),"keyword");
+        List<Picture> pictureList=new ArrayList<Picture>();
+        if(cookie!=null){
+            String[] keywords=cookie.getValue().split("\\|");
+            int length=keywords.length>3?3:keywords.length;
+            for(int i=0;i<length;i++){
+                List<Picture> pictureList2= null;
+                try {
+                    pictureList2 = picDetailService.findAllPicByKey(URLDecoder.decode(keywords[length-1],"UTF-8"));
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+                pictureList.addAll(pictureList2);
+            }
+            if(pictureList.size()<=16){
+                pictureList=collectionService.findAllPic();
+            }
+            java.util.Random random=new java.util.Random();
+            for(int i=0;i<16;i++){
+                subPictures.add(pictureList.get(random.nextInt(pictureList.size()-1)));
+            }
+        }else{
+            pictureList=collectionService.findAllPic();
+            java.util.Random random=new java.util.Random();
+            for(int i=0;i<16;i++){
+                subPictures.add(pictureList.get(random.nextInt(pictureList.size()-1)));
+            }
+        }
         HttpSession session= ServletActionContext.getRequest().getSession();
         Object value= session.getAttribute("studentLogin");
         if(value!=null){
             userName=value.toString().split("\\|")[1];
+            role=value.toString().split("\\|")[2];
         }else{
             userName="youke";
-        }
-        List<Picture> pictureList= collectionService.findAllPic();
-        java.util.Random random=new java.util.Random();
-        for(int i=0;i<16;i++){
-            subPictures.add(pictureList.get(random.nextInt(pictureList.size()-1)));
         }
         columns= columnService.findAllColumn();
         return SUCCESS;
@@ -62,6 +94,26 @@ public class UserAction extends ActionSupport {
             return SUCCESS;
         }
         return INPUT;
+    }
+    public String findPwdInit(){
+        return SUCCESS;
+    }
+    public String updateNickName(){
+        HttpSession session= ServletActionContext.getRequest().getSession();
+        Object value= session.getAttribute("studentLogin");
+        String userId=null;
+        if(value!=null){
+            userId=value.toString().split("\\|")[0];
+        }
+        int i= userService.updateNickName(userId,nickName);
+        if(i==1){
+            respBean = new RespBean(Collections.asMap("code", "0", "message", "success"));
+            String newValue=userId+"|"+nickName+"|"+value.toString().split("\\|")[2];
+            session.setAttribute("studentLogin",newValue);
+        }else {
+            respBean = new RespBean(Collections.asMap("code", "1", "message", "fail"));
+        }
+        return SUCCESS;
     }
     public String checkLogin(){
         if(value ==null){
@@ -78,7 +130,7 @@ public class UserAction extends ActionSupport {
         String userName=CookiesUtil.getCookie(ServletActionContext.getRequest(),"userName").getValue()   ;
         List<User> list = userService.findByName(userName);
         if (list.size() > 0) {
-            respBean = new RespBean(Collections.asMap("code", "1","message","用户名已存在"));
+            respBean = new RespBean(Collections.asMap("code", "1","message","邮箱已存在"));
             return SUCCESS;
         }
         User user = new User();
@@ -121,6 +173,23 @@ public class UserAction extends ActionSupport {
         respBean=new RespBean(Collections.asMap("code","0","message","success"));
         return SUCCESS;
     }
+    public String findPwd(){
+        List<User> list = userService.findByName(userName);
+        if (list.size() ==0) {
+            respBean = new RespBean(Collections.asMap("code", "2","message","邮箱不存在"));
+            return SUCCESS;
+        }
+        String md5Password=MD5Utils.md5Password(newPwd);
+        int i= userService.updatePwd(userName,md5Password);
+        if(i==1) {
+            respBean = new RespBean(Collections.asMap("code", "0", "message", "success"));
+            HttpSession session = ServletActionContext.getRequest().getSession();
+            session.invalidate();
+        }else {
+            respBean = new RespBean(Collections.asMap("code", "1", "message", "fail"));
+        }
+            return SUCCESS;
+    }
     public String getRandom(){
         HtmlEmail email = new HtmlEmail();
         email.setHostName("smtp.163.com");
@@ -128,7 +197,7 @@ public class UserAction extends ActionSupport {
         email.setSubject("大学生收集网站");
         email.setCharset("UTF-8");
         try {
-            email.setFrom("maiyainternet@163.com", "麦芽网络");
+            email.setFrom("maiyainternet@163.com", "闽江学院");
             email.addTo(userName);
             SecureRandom secureRandom=new SecureRandom();
             String random=String.valueOf(secureRandom.nextLong()).substring(1,5);
@@ -148,6 +217,12 @@ public class UserAction extends ActionSupport {
         return SUCCESS;
     }
     public String registerFirst(){
+        String userName=CookiesUtil.getCookie(ServletActionContext.getRequest(),"userName").getValue()   ;
+        List<User> list = userService.findByName(userName);
+        if (list.size() > 0) {
+            respBean = new RespBean(Collections.asMap("code", "2","message","邮箱已存在"));
+            return SUCCESS;
+        }
       List<Random> randoms=  userService.findRandomByName(userName);
       if(randoms.size()==1){
          Random random= randoms.get(0);
@@ -220,5 +295,21 @@ public class UserAction extends ActionSupport {
 
     public void setNickName(String nickName) {
         this.nickName = nickName;
+    }
+
+    public String getNewPwd() {
+        return newPwd;
+    }
+
+    public void setNewPwd(String newPwd) {
+        this.newPwd = newPwd;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }

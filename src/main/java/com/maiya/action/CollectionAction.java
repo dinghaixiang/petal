@@ -42,15 +42,25 @@ public class CollectionAction extends ActionSupport {
     private String key;
     private String picId;
     private String collectionNewName;
+    private String newCollectionId;
+    private String role;
 
     public String init() {
         String userId = value.toString().split("\\|")[0];
         if(value!=null){
             userName=value.toString().split("\\|")[1];
+            role=value.toString().split("\\|")[2];
         }else{
             userName="youke";
         }
-        collectionList = service.findAllCollection(userId);
+        List<Collection> collections = service.findAllCollection(userId);
+        for(Collection collection:collections){
+            List<Picture> pictureList=service.findPicByCollectionId(String.valueOf(collection.getCollectId()));
+            if(pictureList.size()>0){
+                collection.setUrl(pictureList.get(0).getPicName());
+            }
+            collectionList.add(collection);
+        }
         return SUCCESS;
     }
     public String add(){
@@ -90,6 +100,16 @@ public class CollectionAction extends ActionSupport {
         }
         return SUCCESS;
     }
+    public String deletePic(){
+        try {
+            service.deletePic(collectionId,picId);
+            respBean=new RespBean(Collections.asMap("code","1","message","删除成功"));
+        }catch (Exception e){
+            respBean=new RespBean(Collections.asMap("code","0","message","修改失败"));
+            e.printStackTrace();
+        }
+        return SUCCESS;
+    }
 
     public String upload(){
         try{
@@ -115,6 +135,7 @@ public class CollectionAction extends ActionSupport {
                 picture.setPicSize(String.valueOf(fileSize));
                 SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                 picture.setUploadTime(sdf.format(new Date()));
+                picture.setUserId(value.toString().split("\\|")[0]);
                 service.savePicture(picture);
                 List<Picture> specialPictures= service.findPicByName(newFileName);
                 CollectPic collectPic=new CollectPic();
@@ -142,6 +163,17 @@ public class CollectionAction extends ActionSupport {
            respBean=new RespBean(Collections.asMap("code","1","message","success"));
        }
        return SUCCESS;
+    }
+
+    public String updatePicCollection(){
+        try{
+            service.updatePicCollection(collectionId,picId,newCollectionId);
+            respBean=new RespBean(Collections.asMap("code","1","message","success"));
+        }catch (Exception e){
+            e.printStackTrace();
+            respBean=new RespBean(Collections.asMap("code","0","message","fail"));
+        }
+        return SUCCESS;
     }
 
     public List<Collection> getCollectionList() {
@@ -230,5 +262,21 @@ public class CollectionAction extends ActionSupport {
 
     public void setCollectionNewName(String collectionNewName) {
         this.collectionNewName = collectionNewName;
+    }
+
+    public String getNewCollectionId() {
+        return newCollectionId;
+    }
+
+    public void setNewCollectionId(String newCollectionId) {
+        this.newCollectionId = newCollectionId;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }

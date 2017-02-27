@@ -8,6 +8,7 @@ public class Collection {
     private String collectName;
     private String vaild;
     private Integer userId;
+    private String url;
 
     public Integer getUserId() {
         return userId;
@@ -39,5 +40,13 @@ public class Collection {
 
     public void setVaild(String vaild) {
         this.vaild = vaild;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

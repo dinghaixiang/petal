@@ -20,14 +20,17 @@ public class AdminAction extends ActionSupport {
     private AdminService adminService;
     List<User> userList=new ArrayList<User>();
     public String init(){
-        if(value!=null&&"1".equals(value.toString().split("\\|")[1])){
+        if(value!=null&&"1".equals(value.toString().split("\\|")[2])){
             return SUCCESS;
         }
         return INPUT;
     }
     public String allUser(){
-        userList =adminService.findAllUser();
-        return SUCCESS;
+        if(value!=null&&"1".equals(value.toString().split("\\|")[2])){
+            userList =adminService.findAllUser();
+            return SUCCESS;
+        }
+        return INPUT;
     }
 
     public List<User> getUserList() {

@@ -90,5 +90,26 @@ public class CollectionService {
         query.executeUpdate();
         session.getTransaction().commit();
     }
+    public void deletePic(String collectionId,String picId){
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        String sql = "update collectpic set vaild='0' where collectId=? and picId=?";
+        SQLQuery query = session.createSQLQuery(sql);
+        query.setString(0, collectionId);
+        query.setString(1, picId);
+        query.executeUpdate();
+        session.getTransaction().commit();
+    }
+    public void updatePicCollection(String collectionId,String picId,String newCollectionId){
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        String sql = "update collectpic set collectId=? where collectId=? and picId=?";
+        SQLQuery query = session.createSQLQuery(sql);
+        query.setString(0, newCollectionId);
+        query.setString(1, collectionId);
+        query.setString(2, picId);
+        query.executeUpdate();
+        session.getTransaction().commit();
+    }
 
 }

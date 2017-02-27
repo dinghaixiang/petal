@@ -41,6 +41,7 @@ public class ColumnDetailAction extends ActionSupport {
     private CollectionService collectionService;
     private RespBean respBean;
     List<Column> columns;
+    private String role;
     public String save(){
         Column column=new Column();
         column.setColumnName(columnName);
@@ -65,6 +66,7 @@ public class ColumnDetailAction extends ActionSupport {
     public String detail(){
         if(value!=null){
             userName=value.toString().split("\\|")[1];
+            role=value.toString().split("\\|")[2];
         }else{
             userName="youke";
         }
@@ -72,8 +74,11 @@ public class ColumnDetailAction extends ActionSupport {
         return SUCCESS;
     }
     public String adminColumnIndex(){
-        columns= columnService.findAllColumn();
-        return SUCCESS;
+        if(value!=null&&"1".equals(value.toString().split("\\|")[2])){
+            columns= columnService.findAllColumn();
+            return SUCCESS;
+        }
+        return INPUT;
     }
     public String adminColumnDeatil(){
         pictureList= columnService.findColumnPic(columnId);
@@ -204,5 +209,13 @@ public class ColumnDetailAction extends ActionSupport {
 
     public void setKey(String key) {
         this.key = key;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }

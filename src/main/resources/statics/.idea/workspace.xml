@@ -21,21 +21,53 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="add.svg" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/image/add.svg">
+      <file leaf-file-name="myCollectionDetail.ftl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/myCollectionDetail.ftl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="80" lean-forward="false" selection-start-line="0" selection-start-column="80" selection-end-line="0" selection-end-column="80" />
+            <state relative-caret-position="25">
+              <caret line="11" column="21" lean-forward="false" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="myCollectionDetail.ftl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/myCollectionDetail.ftl">
+      <file leaf-file-name="aaaaa.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/aaaaa.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="17" column="43" lean-forward="false" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
+            <state relative-caret-position="66">
+              <caret line="507" column="22" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="606" selection-end-column="7" />
+              <folding>
+                <element signature="e#13484#13910#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="picDetail.ftl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/picDetail.ftl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="164">
+              <caret line="313" column="10" lean-forward="false" selection-start-line="313" selection-start-column="10" selection-end-line="313" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="register.ftl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/register.ftl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="125">
+              <caret line="5" column="7" lean-forward="false" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="adminIndex.ftl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/adminIndex.ftl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="125">
+              <caret line="5" column="51" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="153" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -51,21 +83,9 @@
       <file leaf-file-name="myCollection.ftl" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/myCollection.ftl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-822">
-              <caret line="330" column="5" lean-forward="false" selection-start-line="330" selection-start-column="5" selection-end-line="330" selection-end-column="5" />
+            <state relative-caret-position="28">
+              <caret line="317" column="1" lean-forward="false" selection-start-line="317" selection-start-column="1" selection-end-line="332" selection-end-column="14" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="aaa.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/views/aaa.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="317">
-              <caret line="368" column="25" lean-forward="true" selection-start-line="368" selection-start-column="0" selection-end-line="369" selection-end-column="0" />
-              <folding>
-                <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -73,8 +93,18 @@
       <file leaf-file-name="columnDetail.ftl" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/columnDetail.ftl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1453">
-              <caret line="520" column="16" lean-forward="false" selection-start-line="520" selection-start-column="16" selection-end-line="520" selection-end-column="16" />
+            <state relative-caret-position="375">
+              <caret line="15" column="37" lean-forward="false" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="columnManger.ftl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/columnManger.ftl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -83,28 +113,8 @@
       <file leaf-file-name="userIndex.ftl" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/userIndex.ftl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="11025">
-              <caret line="441" column="10" lean-forward="false" selection-start-line="433" selection-start-column="6" selection-end-line="441" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="jquery.min.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/jquery.min.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="close.svg" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/image/close.svg">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="12275">
+              <caret line="491" column="6" lean-forward="false" selection-start-line="491" selection-start-column="6" selection-end-line="491" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -130,11 +140,19 @@
       <find>uploadFile</find>
       <find>box-bottom</find>
       <find>box-content</find>
-      <find>collection</find>
       <find>display: flex;</find>
       <find>register</find>
       <find>login</find>
       <find>dialog-box</find>
+      <find>deleteIcon</find>
+      <find>collection</find>
+      <find>random</find>
+      <find>name</find>
+      <find>add</find>
+      <find>right-detail</find>
+      <find>edit</find>
+      <find>cancel</find>
+      <find>logined</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -143,16 +161,19 @@
         <option value="$PROJECT_DIR$/views/1111.html" />
         <option value="$PROJECT_DIR$/views/myCollection.html" />
         <option value="$PROJECT_DIR$/views/userIndex.html" />
-        <option value="$PROJECT_DIR$/views/myCollectionDetail.ftl" />
         <option value="$PROJECT_DIR$/views/register.html" />
         <option value="$PROJECT_DIR$/views/picDetail.html" />
         <option value="$PROJECT_DIR$/views/adminIndex.html" />
         <option value="$PROJECT_DIR$/views/userIndex.ftl" />
         <option value="$PROJECT_DIR$/views/detail.html" />
         <option value="$PROJECT_DIR$/views/qqq.html" />
-        <option value="$PROJECT_DIR$/views/columnDetail.ftl" />
         <option value="$PROJECT_DIR$/views/myCollection.ftl" />
         <option value="$PROJECT_DIR$/views/aaa.html" />
+        <option value="$PROJECT_DIR$/views/myCollectionDetail.ftl" />
+        <option value="$PROJECT_DIR$/views/columnDetail.ftl" />
+        <option value="$PROJECT_DIR$/views/forgetPwd.html" />
+        <option value="$PROJECT_DIR$/views/picDetail.ftl" />
+        <option value="$PROJECT_DIR$/views/aaaaa.html" />
       </list>
     </option>
   </component>
@@ -181,6 +202,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -207,24 +230,8 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="statics" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="statics" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="image" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -328,32 +335,36 @@
       <workItem from="1486898129221" duration="1742000" />
       <workItem from="1487341875448" duration="2676000" />
       <workItem from="1487428724326" duration="3707000" />
+      <workItem from="1487640853754" duration="1429000" />
+      <workItem from="1487652679692" duration="11537000" />
+      <workItem from="1487764675040" duration="1998000" />
+      <workItem from="1487837973955" duration="3682000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61179000" />
+    <option name="totallyTimeSpent" value="79825000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1366" height="728" extended-state="0" />
+    <frame x="0" y="0" width="1366" height="728" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24962293" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -363,38 +374,18 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/views/aaaaa.html</url>
+          <line>492</line>
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/image/close.svg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/adminIndex.ftl" />
-    <entry file="file://$PROJECT_DIR$/image/collect2.svg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/image/huaban.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/image/search.svg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/image/add.svg">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -407,7 +398,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -415,7 +405,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -451,7 +440,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -459,7 +447,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -537,12 +524,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/1111.html" />
-    <entry file="file://$PROJECT_DIR$/views/adminIndex.ftl" />
     <entry file="file://$PROJECT_DIR$/image/close.svg">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -550,7 +535,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -571,14 +555,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/register.html" />
-    <entry file="file://$PROJECT_DIR$/views/myCollectionDetail.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="17" column="43" lean-forward="false" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/picDetail.html" />
     <entry file="file://$PROJECT_DIR$/views/adminIndex.html" />
     <entry file="file://$PROJECT_DIR$/views/error.ftl" />
@@ -586,21 +562,47 @@
     <entry file="file://$PROJECT_DIR$/views/detail.html" />
     <entry file="file://$PROJECT_DIR$/views/userIndex.ftl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11025">
-          <caret line="441" column="10" lean-forward="false" selection-start-line="433" selection-start-column="6" selection-end-line="441" selection-end-column="10" />
+        <state relative-caret-position="12275">
+          <caret line="491" column="6" lean-forward="false" selection-start-line="491" selection-start-column="6" selection-end-line="491" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/qqq.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1351">
-          <caret line="448" column="11" lean-forward="true" selection-start-line="448" selection-start-column="11" selection-end-line="448" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/views/qqq.html" />
     <entry file="file://$PROJECT_DIR$/image/delete.svg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/aaa.html" />
+    <entry file="file://$PROJECT_DIR$/views/forgetPwd.html" />
+    <entry file="file://$PROJECT_DIR$/views/register.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="5" column="7" lean-forward="false" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/adminIndex.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="5" column="51" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="153" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/columnDetail.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="15" column="37" lean-forward="false" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/columnManger.ftl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -608,28 +610,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/columnDetail.ftl">
+    <entry file="file://$PROJECT_DIR$/views/myCollectionDetail.ftl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1453">
-          <caret line="520" column="16" lean-forward="false" selection-start-line="520" selection-start-column="16" selection-end-line="520" selection-end-column="16" />
+        <state relative-caret-position="25">
+          <caret line="11" column="21" lean-forward="false" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/myCollection.ftl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-822">
-          <caret line="330" column="5" lean-forward="false" selection-start-line="330" selection-start-column="5" selection-end-line="330" selection-end-column="5" />
+        <state relative-caret-position="28">
+          <caret line="317" column="1" lean-forward="false" selection-start-line="317" selection-start-column="1" selection-end-line="332" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/aaa.html">
+    <entry file="file://$PROJECT_DIR$/views/picDetail.ftl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="368" column="25" lean-forward="true" selection-start-line="368" selection-start-column="0" selection-end-line="369" selection-end-column="0" />
+        <state relative-caret-position="164">
+          <caret line="313" column="10" lean-forward="false" selection-start-line="313" selection-start-column="10" selection-end-line="313" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/aaaaa.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="507" column="22" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="606" selection-end-column="7" />
           <folding>
-            <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="e#13484#13910#0" expanded="false" />
           </folding>
         </state>
       </provider>

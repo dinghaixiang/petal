@@ -18,7 +18,7 @@ public class PicDetailService {
     private SessionFactory sessionFactory;
     public List<Picture> findPicById(String picId){
         Session session = sessionFactory.openSession();
-        String sql = "select * from picture where vaild='1' and picId=?";
+        String sql = "select p.picId,p.collectId,p.vaild,p.keyword,p.picName,p.picSize,p.picFormat,p.uploadTime,u.nickName 'userId' from picture p left JOIN userinfo u on p.userId=u.userId  where p.vaild='1' and p.picId=?";
         SQLQuery query = session.createSQLQuery(sql).addEntity(Picture.class);
         query.setString(0, picId);
         return query.list();

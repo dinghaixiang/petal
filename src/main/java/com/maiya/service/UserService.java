@@ -62,4 +62,20 @@ public class UserService {
         session.getTransaction().commit();
         return i;
     }
+    public int updatePwd(String userName,String newPwd){
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        String sql = "update userInfo set userPwd = :newPwd where userName=:userName";
+        int i=session.createSQLQuery(sql).setString("newPwd",newPwd).setString("userName",userName).executeUpdate();
+        session.getTransaction().commit();
+        return i;
+    }
+    public int updateNickName(String userid,String nickName){
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        String sql = "update userInfo set nickName = :nickName where userid=:userid";
+        int i=session.createSQLQuery(sql).setString("userid",userid).setString("nickName",nickName).executeUpdate();
+        session.getTransaction().commit();
+        return i;
+    }
 }

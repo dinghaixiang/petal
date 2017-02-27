@@ -66,20 +66,10 @@
             height: 300px;
             border:2px solid #dedede;
             align-content: center;
+            line-height: 300px;
             align-content: center;
             margin: 20px;
             position: relative;
-        }
-        .dialog-box2{
-            background: #fff;
-            width: 530px;
-            position: fixed;
-            left: 50%;
-            top: 50%;
-            margin: -220px 0 0 -290px;
-            box-shadow: 0 2px 5px rgba(0,0,0,.3);
-            border-radius: 1px;
-            display: none;
         }
         .dialog-box{
             background: #fff;
@@ -146,84 +136,41 @@
             height: 300px;
             cursor: pointer;
         }
-        .add:hover .edit{
-            display: block;
-        }
         .edit{
             width: 200px;
             position: absolute;
             height: 20px;
             background-color: #fff;
             text-align: center;
-            color: rosybrown;
+            color: #CCCCCC;
             cursor: pointer;
             bottom: 0px;
-            display: none;
         }
-        .update-content{
-            margin-bottom: 16px;
-        }
-        .selector{
-            width: 360px;
-            height: 30px;
-        }
-        .delete-btn{
-            width: 80px;
-            height: 30px;
-            line-height: 30px;
-            text-align: center;
-            border: 1px solid #f0f0f0;
-            display: inline-block;
-            border-radius: 3px;
-            color: #777777;
+        .deleteIcon{
+            width: 20px;
+            height: 20px;
+            background-size: contain;
+            background-image: url("/petal/statics/image/delete2.svg");
+            background-repeat: no-repeat;
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            right: -10px;
             cursor: pointer;
-            margin-bottom: 10px;
-        }
-
-        .name{
-            width: 62px;
-            display: inline-block;
-            height: 30px;
-        }
-        .dialog-box2 .buttons{
-            margin-left: 150px;
-        }
-        .delete-sure{
-            width: 184px;
-            height: 82px;
-            border: 1px solid #CCCCCC;
-            padding: 30px;
-            background-color: #ffffff;
-            position: fixed;
-            left: 60%;
-            top: 50%;
-            margin: -220px 0 0 -290px;
-            box-shadow: 0 2px 5px rgba(0,0,0,.3);
-            border-radius: 1px;
-            display: none;
-        }
-        .delete-content{
-            margin-bottom: 10px;
-            font-size: 18px;
-            font-weight: 700;
         }
     </style>
     <script src="/petal/statics/js/jquery.min.js"></script>
     <script>
         var collectionId="${collectionId?string}";
-        var picId='';
         $(function () {
             $("#collectionId").val(collectionId);
             $("#addCollection").click(function () {
                 $(".dialog-box").show();
             })
-            $(".dialog-box .cancel").click(function () {
+            $(".cancel").click(function () {
                 $(".dialog-box").hide();
             })
-            $(".dialog-box2 .cancel").click(function () {
-                $(".dialog-box2").hide();
-            })
-            $(".dialog-box .submit").click(function () {
+            $(".submit").click(function () {
                 $("#itemForm").submit();
             })
             $(".loginOut").click(function () {
@@ -252,36 +199,12 @@
             $(".last-new").click(function () {
                 location.href="/petal/picDetail/findLastNew" ;
             })
-            $(".edit").click(function () {
-                $.ajax({
-                    url: "/petal/user/checkLogin",
-                    type: "post",
-                    dataType: "json",
-                    data: {},
-                    async: false,
-                    success: function (ret) {
-                        if(ret.code=="0"){
-                            if(ret.data.code=="1"){
-                                alert("未登录或登录失效，请先登录");
-                                location.href="/petal/user/init";
-                            }else{
-                                var collects=ret.data.message;
-                                for(i=0;i<collects.length;i++){
-                                    $(".selector").append(' <option value="'+collects[i].collectId+'">'+collects[i].collectName+'</option>')
-                                }
-                            }
-                        }
-                    }
-                })
-                $(".dialog-box2").show();
-                picId=$(this).attr("data-id");
-            })
-            $(".delete-sure .submit").click(function () {
+            $(".deleteIcon").click(function () {
                 $.ajax({
                     url: "/petal/collection/deletePic",
                     type: "post",
                     dataType: "json",
-                    data: {"collectionId":collectionId,"picId":picId},
+                    data: {"collectionId":collectionId,"picId":$(this).attr("data-id")},
                     async: false,
                     success: function (ret) {
                         if(ret.data.code=="1"){
@@ -292,40 +215,6 @@
                     }
                 })
             })
-            $(".delete-sure .cancel").click(function () {
-                $(".delete-sure").hide();
-            })
-            $(".delete-btn").click(function () {
-                $(".dialog-box2").hide();
-                $(".delete-sure").show();
-            })
-            $(".dialog-box2 .submit").click(function () {
-                if($(".selector").val()=='0') {
-                    alert("请选择收藏夹");
-                    return;
-                }
-                $.ajax({
-                    url: "/petal/collection/updatePicCollection",
-                    type: "post",
-                    dataType: "json",
-                    data: {"collectionId": collectionId, "picId": picId, "newCollectionId": $(".selector").val()},
-                    async: false,
-                    success: function (ret) {
-                        if(ret.data.code=="1"){
-                            location.reload();
-                        }else{
-                            alert("更改失败");
-                        }
-                    }
-                })
-            })
-            $("#findUser").click(function () {
-                location.href="/petal/admin/allUser"
-            })
-            $("#columnManger").click(function () {
-                location.href="/petal/columnDetail/adminColumnIndex"
-            })
-
         })
 
     </script>
@@ -344,14 +233,6 @@
                 <a class="loginOut">退出登录</a>
             </div>
         </div>
-        <div class="nav logined admin">
-            <div class="welcome">${userName}</div>
-            <div class="info">
-                <a id="columnManger">专栏配置</a>
-                <a id="findUser">查看用户</a>
-                <a class="loginOut">退出登录</a>
-            </div>
-        </div>
     </div>
 </div>
 <div class="content">
@@ -359,15 +240,14 @@
         <div class="collection" id="addCollection">
             <div class="icon" ></div>
         </div>
-    <#list pictureList as picture>
-        <div class="collection add">
-            <a href="/petal/picDetail/detail?picId=${picture.picId}">
-                <img src="/pic/${picture.picName}">
-            </a>
-            <div class="edit" data-id="${picture.picId}"><a>编辑</a></div>
-        </div>
-    </#list>
-
+        <#list pictureList as picture>
+            <div class="collection add">
+                <a href="/petal/picDetail/detail?picId=${picture.picId}">
+                    <img src="/pic/${picture.picName}">
+                </a>
+                <div class="edit" data-id="${collection.collectId}"><a>编辑</a></div>
+            </div>
+        </#list>
     </div>
 </div>
 <div class="dialog-box ">
@@ -390,43 +270,6 @@
                 </div>
             </div>
         </form>
-    </div>
-</div>
-<div class="dialog-box2">
-    <div class="box-title">
-        <label>更改收藏夹</label>
-    </div>
-    <div class="box-content">
-        <div class="update-content">
-            <label class="name">收藏夹:</label><select class="selector"><option value="0">未选择</option></select>
-        </div>
-        <div class="delete-box">
-            <label class="name">删&nbsp;除:</label><div class="delete-btn">删除图片</div>
-        </div>
-        <div class="box-bottom">
-            <div class="buttons">
-                <a href="#" onclick="return false;" class="cancel button">
-                    <span class="text"> 取消</span>
-                </a>
-                <a href="#" onclick="return false;" class="submit button">
-                    <span class="text"> 确定</span>
-                </a>
-            </div>
-        </div>
-        </form>
-    </div>
-</div>
-<div class="delete-sure">
-    <div class="delete-content"><label>是否确认删除?</label></div>
-    <div class="box-bottom">
-        <div class="buttons">
-            <a href="#" onclick="return false;" class="cancel button">
-                <span class="text"> 取消</span>
-            </a>
-            <a href="#" onclick="return false;" class="submit button">
-                <span class="text"> 删除</span>
-            </a>
-        </div>
     </div>
 </div>
 </body>

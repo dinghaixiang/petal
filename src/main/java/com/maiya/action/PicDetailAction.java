@@ -26,13 +26,30 @@ public class PicDetailAction extends ActionSupport {
     @Autowired
     private PicDetailService picDetailService;
     private String userName;
+    private String role;
     public String detail(){
+        HttpSession session= ServletActionContext.getRequest().getSession();
+        Object value= session.getAttribute("studentLogin");
+        if(value!=null){
+            userName=value.toString().split("\\|")[1];
+            role=value.toString().split("\\|")[2];
+        }else{
+            userName="youke";
+        }
         List<Picture> pictureList= picDetailService.findPicById(picId);
         picture=pictureList.get(0);
-        List<Picture> pictures= picDetailService.findAllPic();
+        List<Picture> pictures= picDetailService.findAllPicByKey(picture.getKeyWord());
         Random random=new Random();
-        for(int i=0;i<6;i++){
-            subPictures.add(pictures.get(random.nextInt(pictures.size()-1)));
+        if(pictures.size()>=6){
+            for(int i=0;i<6;i++){
+                subPictures.add(pictures.get(random.nextInt(pictures.size()-1)));
+            }
+        }else {
+            List<Picture> allPictures =picDetailService.findAllPic();
+            subPictures.addAll(pictures);
+            for(int i=0;i<6-pictures.size();i++){
+                subPictures.add(allPictures.get(random.nextInt(allPictures.size()-1)));
+            }
         }
         return SUCCESS;
     }
@@ -113,5 +130,13 @@ public class PicDetailAction extends ActionSupport {
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }

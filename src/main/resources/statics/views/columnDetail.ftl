@@ -13,6 +13,7 @@
       height: 100px;
       display: flex;
       justify-content: space-between;
+      background-color: currentColor;
     }
     .nav{
       margin:20px 40px;
@@ -190,7 +191,7 @@
       margin: 0 auto;
       display: none;
     }
-    .register-box{
+    .register-box,.register-box2{
       background-color: #fff;
       position: fixed;
       left: 400px;
@@ -317,18 +318,34 @@
     .logined{
         color: burlywood;
     }
+    .admin:hover .info{
+        display: block;
+    }
+    .forgetPwd{
+        color:red;
+    }
   </style>
   <script src="/petal/statics/js/jquery.min.js"></script>
   <script>
     $(function () {
       var userName="${userName?string}";
-    if(userName!="youke"){
-      $(".right").hide();
-      $(".logined").show();
-    }else{
-      $(".right").show();
-      $(".logined").hide();
-    }
+    <#if role??>
+        var role="${role?string}";
+    </#if>
+        if(userName!="youke"){
+            $(".right").hide();
+            if(role=="1"){
+                $(".admin").show();
+                $(".logined").hide();
+            }else{
+                $(".logined").show();
+                $(".admin").hide();
+            }
+        }else{
+            $(".right").show();
+            $(".logined").hide();
+            $(".admin").hide();
+        }
     $("#register").click(function () {
       $(".login-box").fadeOut();
       $(".register-box").fadeIn();
@@ -376,7 +393,7 @@
         }
       })
     })
-    $(".register-btn").click(function () {
+    $(".register-box .register-btn").click(function () {
       $.ajax({
         url: "/petal/user/register-first",
         type: "post",
@@ -416,7 +433,9 @@
               $(".login-box").hide();
               $(".welcome").text(ret.data.message);
             }else if(ret.data.code=="2"){
-              location.href="/petal/user/adminInit";
+                $(".admin").show();
+                $(".right").hide();
+                $(".login-box").hide();
             } else{
               $(".errorTip label").text(ret.data.message);
               $(".errorTip").show();
@@ -448,6 +467,31 @@
         $("#collection").click(function () {
             location.href="/petal/collection/init";
         })
+        $(".forgetPwd").click(function () {
+            location.href="/petal/user/findPwdInit";
+        })
+        $("#alterNick").click(function () {
+            $(".register-box").fadeOut();
+            $(".login-box").fadeOut();
+            $(".register-box2").fadeIn();
+        })
+        $(".register-box2 .register-btn").click(function () {
+            $.ajax({
+                url: "/petal/user/updateNickName",
+                type: "post",
+                dataType: "json",
+                data: {},
+                async: false,
+                success: function (ret) {
+                    if(ret.data.code=="0") {
+                        location.reload();
+                    }else{
+                        alert("系统异常");
+                    }
+                }
+            })
+        })
+
     })
 
   </script>
@@ -459,17 +503,28 @@
       <a class="find">发现</a>
       <a class="last-new">最新</a>
     </div>
-    <div class="nav logined">
-      <div class="welcome">${userName}</div>
-      <div class="info">
-        <a id="collection">我的收藏夹</a>
-        <a class="loginOut">退出登录</a>
+
+      <div class="nav right">
+          <a class="login">登录</a>
+          <a class="register">注册</a>
       </div>
-    </div>
-    <div class="nav right">
-      <a class="login">登录</a>
-      <a class="register">注册</a>
-    </div>
+
+      <div class="nav logined">
+          <div class="welcome">${userName}</div>
+          <div class="info">
+              <a id="collection">我的收藏夹</a>
+              <a id="alterNick">更改昵称</a>
+              <a class="loginOut">退出登录</a>
+          </div>
+      </div>
+      <div class="nav admin">
+          <div class="welcome">管理员</div>
+          <div class="info">
+              <a id="columnManger">专栏配置</a>
+              <a id="findUser">查看用户</a>
+              <a class="loginOut">退出登录</a>
+          </div>
+      </div>
   </div>
 </div>
 <div class="middle">
@@ -502,6 +557,7 @@
       <a class="login-btn">登录</a>
     </div>
     <div class="login-child">
+        <div class="forgetPwd"><a>忘记密码</a></div>
       <div><span>还没有帐号？</span><a id="register">点此注册>></a></div>
     </div>
   </div>
@@ -525,6 +581,17 @@
       <span>已有帐号？</span><a id="login">点此登录>></a>
     </div>
   </div>
+</div>
+<div class="register-box2">
+    <div class="close"></div>
+    <div class="register-father">
+        <div class="email">
+            <input type="text" id="nickName" placeholder="请输入新的昵称">
+        </div>
+        <div class="register-btn">
+            <a>修改</a>
+        </div>
+    </div>
 </div>
 </body>
 </html>

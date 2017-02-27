@@ -126,6 +126,7 @@
      <div class="menu"><a href="/petal/admin/allUser">查看用户</a></div>
      <div class="menu"><a href="/petal/columnDetail/adminColumnIndex">专栏配置</a></div>
      <div class="menu"><a>修改密码</a></div>
+     <div class="menu"><a>修改密码</a></div>
     </div>
     <div class="right-detail">
 

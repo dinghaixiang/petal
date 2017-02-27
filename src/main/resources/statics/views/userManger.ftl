@@ -55,7 +55,7 @@
            <div class="content-content">
                 <div class="element">${user.userName}</div>
                 <div class="element">${user.userPwd}</div>
-                <div class="element"><#if user.role==1>管理员<#else>普通用户</#if></div>
+                <div class="element"><#if user.role?string=="1">管理员<#else>普通用户</#if></div>
            </div>
            </#list>
        </div>
