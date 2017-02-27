@@ -513,6 +513,7 @@
             <div class="nav left">
                 <a class="find">发现</a>
                 <a class="last-new">最新</a>
+                <a class="last-new">测试</a>
             </div>
                 <div class="nav logined">
                     <div class="welcome">${userName}</div>
